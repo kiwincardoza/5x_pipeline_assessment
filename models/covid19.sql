@@ -1,7 +1,7 @@
 {{  config(    materialized='view'  )}}
 
 with covid19 as (
-    select _ROW as ROW_NO,
+    SELECT _ROW as ROW_NO,
     TIME_ZONE,
     TOTAL_RECOVERED,
     TOTAL_CASES_PER_MILLION,
@@ -40,4 +40,4 @@ with covid19 as (
     LOCATION 
     FROM FIVETRAN_INTERVIEW_DB.GOOGLE_SHEETS.COVID_19_INDONESIA_BENNY_CARDOZA
 )
-select * from covid19
+SELECT * from covid19
