@@ -1,0 +1,8 @@
+SELECT a.LOCATION, a.TOTAL_CASES, a.TOTAL_CASES_PER_MILLION, a.NEW_CASES, a.NEW_ACTIVE_CASES, 
+b.TOTAL_RECOVERED, b.CASE_RECOVERED_RATE, b.NEW_RECOVERED, 
+c.TOTAL_DEATHS, c.TOTAL_DEATHS_RATE, c.NEW_DEATHS, c.NEW_DEATHS_RATE 
+FROM {{ ref('cases_by_location') }} a
+INNER JOIN {{ ref('location_wise_recovered_rates') }} b
+ON a.LOCATION = b.LOCATION 
+INNER JOIN {{ ref('location_wise_death_rates') }} c 
+ON b.LOCATION = c.LOCATION

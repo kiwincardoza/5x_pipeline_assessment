@@ -1,0 +1,11 @@
+{{  config(    materialized='view'  )}}
+
+SELECT ROW_NO,
+DATE,
+LOCATION,
+LOCATION_ISO_CODE,
+TOTAL_DEATHS,
+TOTAL_DEATHS_PER_MILLION,
+NEW_DEATHS,
+NEW_DEATHS_PER_MILLION 
+FROM {{ ref('covid19') }}
